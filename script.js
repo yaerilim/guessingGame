@@ -1,5 +1,15 @@
 $(document).ready(function(){
     $('#myModal').modal('toggle');
+    $(".guess").keyup(function(event) {
+        if (event.keyCode == 13) {
+            $(".submit").click();
+        }
+    });
+    $(".input").keyup(function(event) {
+        if (event.keyCode == 13) {
+            $(".button").click();
+        }
+    });
 });
 
 var current_temp;

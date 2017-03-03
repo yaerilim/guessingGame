@@ -185,5 +185,8 @@ h1{
     color:white;
     border: 1vh solid #779ECB;
 }
+.play_button:focus {
+    outline:none;
+}
 
 
