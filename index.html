@@ -2,42 +2,63 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-        <html>
-        <body>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
-        </script>
-        <script>
-            var the_number = null;
-            function pick_number(){
-                var random_number = Math.floor((Math.random() * 10) + 1);
-                the_number = random_number;
-                return random_number;
-            }
-            function make_guess() {
-                var the_guess = $("#guess_input").val();
-                if (the_guess > the_number) {
-                    $("#responsive_div").text("Too High!");
-                } else if (the_guess < the_number) {
-                    $("#responsive_div").text("Too Low!");
-                } else if (the_guess === the_number) {
-                    $("#responsive_div").text("You guessed it!")
-                }
-            }
-            $( document ).ready(function(){
-                $("button").click(function(){
-                    make_guess();
-                    console.log("I am clicked");
-                });
-            } );
-        </script>
-    </body>
-</html>
-    </script>
+    <title>Guess the Temperature!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body onload="pick_number()">
-    <input  id="guess_input" type="text">
-    <div id="responsive_div"></div>
-    <button>Guess</button>
+<body>
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">How To Play</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Enter your zip code</p>
+                    <p>Guess the temperature of the zip code</p>
+                    <p>Enter the temperature in °F and click ? button</p>
+                    <p>If the answer is incorrect, you will get a hint</p>
+                    <p>Get the right answer in 5 tries!</p>
+                    <button type="button" class="play_button" data-dismiss="modal">Play</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1>The Temperature Guessing Game</h1>
+    <div class="container">
+        <div class="left col-md-6 col-lg-6 col-sm-6 col-xs-6">
+            <div class="game_area">
+                <p class="what">Guess the Current Temperature in</p>
+                <p class="location"></p>
+                <i class="fa fa-thermometer-full" aria-hidden="true"></i><br>
+                <input type="text" class="guess" placeholder="          °F">
+                <button type="button" class="submit" onclick="my_guess(); $('.guess').val('')">?</button><br>
+                <p class="direction"></p>
+            </div>
+            <div class="zipcode">
+                <p>Enter your zip code</p>
+                <input type="text" class="input">
+                <button type="button" class="button" onclick="weather()">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </div>
+        </div>
+        <div class="right col-md-6 col-lg-6 col-sm-6 col-xs-6">
+            <div class="api">
+                <p class="answer"></p><br>
+                <p class="current">It is currently</p><br>
+                <p class="temperature"></p><p class="f">°F</p><br>
+                <button type="button" class="again" onclick="reset()">Play Again</button>
+            </div>
+            <div class="question_mark">?</div>
+        </div>
+    </div>
 </body>
 </html>
