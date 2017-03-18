@@ -18,20 +18,21 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">How To Play</h4>
+                    <h4 class="modal-title">The Temperature<br>Guessing Game</h4>
                 </div>
                 <div class="modal-body">
-                    <p>Enter your zip code</p>
-                    <p>Guess the temperature of the zip code</p>
-                    <p>Enter the temperature in °F and click ? button</p>
+                    <p class="how_to_play">How To Play</p>
+                    <p class="how_to_play">---------------------------</p>
+                    <p>Enter a zip code</p>
+                    <p>Guess the current temperature of that location</p>
+                    <p>Enter the your guess in Fahrenheit and click ? button</p>
                     <p>If the answer is incorrect, you will get a hint</p>
-                    <p>Get the right answer in 5 tries!</p>
+                    <p style="font-weight: 900">Get the right answer in 5 tries!</p>
                     <button type="button" class="play_button" data-dismiss="modal">Play</button>
                 </div>
             </div>
         </div>
     </div>
-    <h1>The Temperature Guessing Game</h1>
     <div class="container">
         <div class="left col-md-6 col-lg-6 col-sm-6 col-xs-6">
             <div class="game_area">
@@ -54,7 +55,7 @@
             <div class="api">
                 <p class="answer"></p><br>
                 <p class="current">It is currently</p><br>
-                <p class="temperature"></p><p class="f">°F</p><br>
+                <p class="temperature"></p><p class="right_answer">°F</p><br>
                 <button type="button" class="again" onclick="reset()">Play Again</button>
             </div>
             <div class="question_mark">?</div>

@@ -1,7 +1,8 @@
+//---------------------------------- WHEN GAME STARTS ----------------------------------
 $(document).ready(function(){
     $('#myModal').modal('toggle');
     $(".guess").keyup(function(event) {
-        if (event.keyCode == 13) {
+        if (event.keyCode == 13) {             //clicking by pushing enter key
             $(".submit").click();
         }
     });
@@ -11,13 +12,14 @@ $(document).ready(function(){
         }
     });
 });
-
+//---------------------------------- GETTING CURRENT TEMPERATURE VIA ZIP CODE USING 'OPEN WEATHER MAP' API ----------------------------------
 var current_temp;
 var tries = 0;
 function weather(){
     $(".zipcode").slideToggle("slow");
     $.ajax({
         url: "http://api.openweathermap.org/data/2.5/weather?zip=" + $('.input').val() + ",us&units=imperial&APPID=066f7153dc76d5e7f50e852a176b2abf",
+        //input.val is the zip code that user input
         type: "GET",
         dataType: "json",
         success: function(data){
@@ -28,17 +30,17 @@ function weather(){
         }
     });
 }
-
+//---------------------------------- USER GUESSING ----------------------------------
 function my_guess(){
     if(current_temp > $('.guess').val()){
         $('.direction').text('Too Low');
         tries++;
-        fa();
+        thermometer_icon();
     }
     else if(current_temp < $('.guess').val()){
         $('.direction').text('Too high');
         tries++;
-        fa();
+        thermometer_icon();
     }else if(current_temp == $('.guess').val()){
         $('.direction').text('');
         $('.answer').text('Correct!');
@@ -47,8 +49,8 @@ function my_guess(){
         $('.submit').css({"background-color": "gray", "border": "1vh solid gray"});
     }
 }
-
-function fa(){
+//---------------------------------- CHANGE THERMOMETER ICON AS NUMBER OF GUESSES INCREASE ----------------------------------
+function thermometer_icon(){
     if(tries===2){
         $('i').addClass('fa-thermometer-three-quarters');
     }
@@ -66,13 +68,17 @@ function fa(){
         $(".question_mark").slideToggle("slow");
     }
 }
-
+//---------------------------------- WHEN PLAY AGAIN WAS CLICKED ----------------------------------
 function reset(){
     tries = 0;
+    $('.submit').prop("disabled",true);
     $(".zipcode").slideToggle("slow");
     $(".question_mark").slideToggle("slow");
     current_temp = null;
     $('.guess').val('');
     $('.input').val('');
     $('.location').text('');
+    $('.direction').text('');
+    $('i').removeClass('fa-thermometer-quarter').removeClass('fa-thermometer-half').removeClass('fa-thermometer-empty').removeClass('fa-thermometer-three-quarters');
+    $('.submit').css({"background-color": "#779ECB", "border": "1vh solid #779ECB"});
 }
