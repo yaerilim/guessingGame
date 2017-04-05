@@ -68,7 +68,7 @@ function thermometer_icon(){
         $(".question_mark").slideToggle("slow");
     }
 }
-//---------------------------------- WHEN PLAY AGAIN WAS CLICKED ----------------------------------
+//---------------------------------- WHEN PLAY AGAIN IS CLICKED ----------------------------------
 function reset(){
     tries = 0;
     $('.submit').prop("disabled",true);

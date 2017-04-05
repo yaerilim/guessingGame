@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Guess the Temperature!</title>
+    <title>The Temperature Guessing Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Raleway" />
@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<!--------------------------------- MODAL --------------------------------->
     <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -23,10 +24,10 @@
                 <div class="modal-body">
                     <p class="how_to_play">How To Play</p>
                     <p class="how_to_play">---------------------------</p>
-                    <p>Enter a zip code</p>
-                    <p>Guess the current temperature of that location</p>
-                    <p>Enter the your guess in Fahrenheit and click ? button</p>
-                    <p>If the answer is incorrect, you will get a hint</p>
+                    <p>1) Enter a zip code</p>
+                    <p>2) Guess the current temperature of that location</p>
+                    <p>3) Enter your guess in Fahrenheit</p>
+                    <p>4) If the answer is incorrect, you will get a hint</p>
                     <p style="font-weight: 900">Get the right answer in 5 tries!</p>
                     <button type="button" class="play_button" data-dismiss="modal">Play</button>
                 </div>
@@ -34,7 +35,8 @@
         </div>
     </div>
     <div class="container">
-        <div class="left col-md-6 col-lg-6 col-sm-6 col-xs-6">
+<!--------------------------------- LEFT CONTAINERS --------------------------------->
+        <div class="left col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <div class="game_area">
                 <p class="what">Guess the Current Temperature in</p>
                 <p class="location"></p>
@@ -44,14 +46,15 @@
                 <p class="direction"></p>
             </div>
             <div class="zipcode">
-                <p>Enter your zip code</p>
+                <p>Enter a zip code</p>
                 <input type="text" class="input">
                 <button type="button" class="button" onclick="weather()">
                     <span class="glyphicon glyphicon-search"></span>
                 </button>
             </div>
         </div>
-        <div class="right col-md-6 col-lg-6 col-sm-6 col-xs-6">
+<!--------------------------------- RIGHT CONTAINERS --------------------------------->
+        <div class="left col-lg-6 col-md-6 col-sm-12 col-xs-12">
             <div class="api">
                 <p class="answer"></p><br>
                 <p class="current">It is currently</p><br>
